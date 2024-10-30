@@ -1,0 +1,1 @@
+ /home/osama/Downloads/eltagweed_elmoyasar/eltagweed_elmoyasar/.dart_tool/flutter_build/7cedd1ae1376a691c3b91e051f98959e/native_assets.yaml: 
