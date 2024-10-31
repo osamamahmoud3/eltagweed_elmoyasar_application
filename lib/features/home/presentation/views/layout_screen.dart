@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:eltagweed_elmoyasar/core/helpers/app_size.dart';
 import 'package:eltagweed_elmoyasar/core/styles/app_text_styles.dart';
 import 'package:eltagweed_elmoyasar/features/home/presentation/views/books_screen.dart';
@@ -6,9 +8,11 @@ import 'package:eltagweed_elmoyasar/features/home/presentation/views/videos_scre
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/styles/app_colors.dart';
 import '../widgets/bottom_nav_bar_icon.dart';
+import '../widgets/custom_drawer.dart';
 import '../widgets/home_grid_view.dart';
 import 'home_screen.dart';
 
@@ -31,6 +35,8 @@ class _LayoutScreenState extends State<LayoutScreen> {
       const HomeScreen(),
     ];
     return Scaffold(
+      key: scaffoldKey,
+    drawer: CustomDrawer(),
       bottomNavigationBar: IntrinsicHeight(
         child: BottomNavigationBar(
           onTap: (value) {
