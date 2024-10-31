@@ -19,6 +19,12 @@ class AppTextStyles {
     fontFamily: 'Janna LT',
     color: AppColors.secondaryColor,
   );
+  static TextStyle font22bold = TextStyle(
+    fontSize: 22.sp,
+    fontWeight: FontWeight.w700,
+    fontFamily: 'Janna LT',
+    color: Colors.white,
+  );
   static TextStyle font12Weight700White = TextStyle(
       fontSize: 12.sp,
       fontWeight: FontWeight.w700,
@@ -56,7 +62,7 @@ class AppTextStyles {
       fontFamily: 'Janna LT',
       color: AppColors.semiBlue);
 
-      static TextStyle font15Weight700Primary = TextStyle(
+  static TextStyle font15Weight700Primary = TextStyle(
       fontSize: 15.sp,
       fontWeight: FontWeight.w700,
       color: AppColors.primaryColor);
@@ -64,7 +70,7 @@ class AppTextStyles {
   static TextStyle font16Weight400Red = TextStyle(
     color: Colors.red,
     fontSize: 16.sp,
-     fontFamily: 'Janna LT',
+    fontFamily: 'Janna LT',
     fontWeight: FontWeight.w400,
   );
 }
