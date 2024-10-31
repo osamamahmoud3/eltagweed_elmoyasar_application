@@ -34,13 +34,7 @@ keystoreProperties['storeFile'] = file("/Users/osama/upload-keystore.jks") // Us
 
 
 android {
-     splits {
-        abi {
-            enable true
-            reset()
-            include 'armeabi-v7a', 'arm64-v8a', 'x86'
-        }
-    }
+     
     namespace = "com.example.eltagweed_elmoyasar"
     compileSdk = 34
     ndkVersion = flutter.ndkVersion
