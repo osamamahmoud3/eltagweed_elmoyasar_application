@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/styles/app_colors.dart';
@@ -16,6 +15,18 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Uri contactUsUrl =
+        Uri.parse('https://wa.me/201150721902?text=السلام عليكم');
+    Future<void> contactUsMethod() async {
+      if (!await launchUrl(contactUsUrl)) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('لا يمكن فتح الرابط, حاول لاحقاً'),
+          ),
+        );
+      }
+    }
+
     return Drawer(
       backgroundColor: Colors.transparent,
       child: BackdropFilter(
@@ -46,14 +57,14 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 DrawerItem(
                   image: 'assets/svg/Frame 21.svg',
-                  onTap: () async => await launch(
-                      "https://wa.me/01150721902?text=السلام عليكم"),
+                  onTap: contactUsMethod,
                   title: 'تواصل معنا',
                 ),
                 DrawerItem(
                   image: 'assets/svg/share.svg',
-                  onTap: () async => await launch(
-                      "https://wa.me/01150721902?text=السلام عليكم"),
+                  onTap: () {},
+                  // onTap: () async => await launchUrl(
+                  //     "https://wa.me/01150721902?text=السلام عليكم"),
                   title: 'شارك التطبيق',
                 ),
               ],
