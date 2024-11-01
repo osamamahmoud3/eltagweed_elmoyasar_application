@@ -19,6 +19,12 @@ class AppTextStyles {
     fontFamily: 'Janna LT',
     color: AppColors.secondaryColor,
   );
+  static const TextStyle font12redNormal = TextStyle(
+                      color: Color(0x7FFF0000),
+                      fontSize: 12,
+                      fontFamily: 'Janna LT',
+                      fontWeight: FontWeight.w400,
+                    );
   static TextStyle font22bold = TextStyle(
     fontSize: 22.sp,
     fontWeight: FontWeight.w700,

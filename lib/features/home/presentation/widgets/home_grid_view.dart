@@ -15,6 +15,7 @@ class MobileHomeGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
+        physics: const NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -30,7 +31,7 @@ class MobileHomeGridView extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>  RecordsScreen()));
+                      builder: (context) => const RecordsScreen()));
             },
           ),
           HomeGridViewItem(

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../core/methods/launch_links_method.dart';
 import '../../../../core/styles/app_colors.dart';
 import '../../../../core/styles/app_text_styles.dart';
 import 'drawer_item.dart';
@@ -45,14 +46,15 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 DrawerItem(
                   image: 'assets/svg/Frame 21.svg',
-                  onTap: () async => await launch(
-                      "https://wa.me/01150721902?text=السلام عليكم"),
+                  onTap: () => launchLinks(
+                      'https://wa.me/201150721902?text=السلام عليكم', context),
                   title: 'تواصل معنا',
                 ),
                 DrawerItem(
                   image: 'assets/svg/share.svg',
-                  onTap: () async => await launch(
-                      "https://wa.me/01150721902?text=السلام عليكم"),
+                  onTap: () => launchLinks(
+                      'https://play.google.com/store/apps/details?id=com.eltagweed_elmoyasar&pcampaignid=web_share',
+                      context),
                   title: 'شارك التطبيق',
                 ),
               ],

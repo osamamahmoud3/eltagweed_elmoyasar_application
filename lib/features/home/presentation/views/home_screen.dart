@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../core/helpers/app_size.dart';
 import '../../../../core/styles/app_colors.dart';
 import '../../../../core/styles/app_text_styles.dart';
+import '../widgets/competition_announcemnt.dart';
 import '../widgets/competition_widget.dart';
 import '../widgets/home_grid_view.dart';
 
@@ -54,9 +55,9 @@ class HomeScreen extends StatelessWidget {
                     }
                   }),
                   SizedBox(
-                    height: 20.h,
+                    height: 10.h,
                   ),
-                  const CompetitionWidget(),
+                  const CompetitionAnnouncement(),
                   SizedBox(
                     height: 20.h,
                   ),
