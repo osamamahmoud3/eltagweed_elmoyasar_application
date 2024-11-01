@@ -37,7 +37,7 @@ class _CompetitionAnnouncementState extends State<CompetitionAnnouncement> {
     hasViewedExam =
         doc.exists && (doc.data() as Map<String, dynamic>)['viewed'] == true;
 
-    Future.delayed(const Duration(seconds: 30), () async {
+    Future.delayed(const Duration(hours: 3), () async {
       await firestore
           .collection('exam_views')
           .doc(deviceId)
@@ -86,12 +86,12 @@ class _CompetitionAnnouncementState extends State<CompetitionAnnouncement> {
                       builder: (context) => CompetitionWebView(url: link),
                     ),
                   ).then((_) async {
-                    setState(() {
+                    setState(() async {
+                      await markExamAsViewed();
+                      await checkExamStatus();
                       hasViewedExam = true;
                     });
                   });
-                  await markExamAsViewed();
-                  await checkExamStatus();
                 },
               );
             } else {
