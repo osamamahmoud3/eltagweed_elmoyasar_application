@@ -37,7 +37,6 @@ class _CompetitionAnnouncementState extends State<CompetitionAnnouncement> {
     hasViewedExam =
         doc.exists && (doc.data() as Map<String, dynamic>)['viewed'] == true;
 
-    // Reset exam view status after 2 minutes
     Future.delayed(const Duration(seconds: 30), () async {
       await firestore
           .collection('exam_views')

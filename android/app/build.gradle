@@ -30,7 +30,7 @@ def keystoreProperties = new Properties()
 keystoreProperties['storePassword'] = 25595568
 keystoreProperties['keyPassword'] = 25595568
 keystoreProperties['keyAlias'] = "upload"
-keystoreProperties['storeFile'] = file("/Users/osama/upload-keystore.jks") // Use an absolute or relative path
+keystoreProperties['storeFile'] = file("../../android/upload-keystore.jks") 
 
 
 android {
