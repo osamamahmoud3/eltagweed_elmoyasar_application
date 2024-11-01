@@ -40,6 +40,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   just_audio: ^0.9.40
   modal_progress_hud_nsn: ^0.5.1
+  share_plus: ^10.1.1
   shared_preferences: ^2.3.2
   syncfusion_flutter_pdfviewer: ^26.2.9
   url_launcher: ^6.3.0

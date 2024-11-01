@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/methods/launch_links_method.dart';
@@ -52,9 +53,7 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 DrawerItem(
                   image: 'assets/svg/share.svg',
-                  onTap: () => launchLinks(
-                      'https://play.google.com/store/apps/details?id=com.eltagweed_elmoyasar&pcampaignid=web_share',
-                      context),
+                  onTap: () => shareAppLink,
                   title: 'شارك التطبيق',
                 ),
               ],
@@ -64,4 +63,11 @@ class CustomDrawer extends StatelessWidget {
       ),
     );
   }
+}
+
+void shareAppLink() {
+  const String appLink =
+      "https://play.google.com/store/apps/details?id=com.eltagweed_elmoyasar&pcampaignid=web_share";
+  const String message = "حمل الان تطبيق التجويد الميسر: $appLink";
+  Share.share(message);
 }

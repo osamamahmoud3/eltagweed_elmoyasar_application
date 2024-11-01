@@ -92,6 +92,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "cross_file",
+      "rootUri": "file:///home/osama/.pub-cache/hosted/pub.dev/cross_file-0.3.4+2",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "crypto",
       "rootUri": "file:///home/osama/.pub-cache/hosted/pub.dev/crypto-3.0.5",
       "packageUri": "lib/",
@@ -296,6 +302,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "mime",
+      "rootUri": "file:///home/osama/.pub-cache/hosted/pub.dev/mime-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "modal_progress_hud_nsn",
       "rootUri": "file:///home/osama/.pub-cache/hosted/pub.dev/modal_progress_hud_nsn-0.5.1",
       "packageUri": "lib/",
@@ -378,6 +390,18 @@
       "rootUri": "file:///home/osama/.pub-cache/hosted/pub.dev/rxdart-0.27.7",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "share_plus",
+      "rootUri": "file:///home/osama/.pub-cache/hosted/pub.dev/share_plus-10.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "share_plus_platform_interface",
+      "rootUri": "file:///home/osama/.pub-cache/hosted/pub.dev/share_plus_platform_interface-5.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "shared_preferences",
@@ -698,7 +722,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-11-01T14:51:16.043092Z",
+  "generated": "2024-11-01T15:20:10.395092Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///home/osama/flutter",
