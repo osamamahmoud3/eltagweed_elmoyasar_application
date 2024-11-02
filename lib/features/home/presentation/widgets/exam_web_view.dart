@@ -24,6 +24,6 @@ class CompetitionWebView extends StatelessWidget {
       body: WebViewWidget(
         controller: WebViewController()..loadRequest(Uri.parse(url)),
       ),
-    );
+    ); 
   }
 }
