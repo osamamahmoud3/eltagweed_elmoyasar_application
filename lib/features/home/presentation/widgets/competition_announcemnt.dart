@@ -37,16 +37,14 @@ class _CompetitionAnnouncementState extends State<CompetitionAnnouncement> {
     hasViewedExam =
         doc.exists && (doc.data() as Map<String, dynamic>)['viewed'] == true;
 
-    Future.delayed(const Duration(hours: 3), () async {
+    Future.delayed(const Duration(hours: 4), () async {
       await firestore
           .collection('exam_views')
           .doc(deviceId)
           .set({'viewed': false});
-      if (mounted) {
-        setState(() {
-          hasViewedExam = false;
-        });
-      }
+      setState(() {
+        hasViewedExam = false;
+      });
     });
   }
 
@@ -79,18 +77,15 @@ class _CompetitionAnnouncementState extends State<CompetitionAnnouncement> {
               return CompetitionWidget(
                 isCompetition: true,
                 onTap: () async {
-                  print(link);
+                  await markExamAsViewed();
                   await Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => CompetitionWebView(url: link),
                     ),
                   ).then((_) async {
-                    setState(() async {
-                      await markExamAsViewed();
-                      await checkExamStatus();
-                      hasViewedExam = true;
-                    });
+                    await checkExamStatus();
+                    setState(() {});
                   });
                 },
               );
