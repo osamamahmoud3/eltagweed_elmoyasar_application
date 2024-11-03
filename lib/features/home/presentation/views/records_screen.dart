@@ -93,17 +93,12 @@ class _RecordsScreenState extends State<RecordsScreen> {
                     ],
                   ),
                   verticalSpace(16),
-                  _audios.isNotEmpty
-                      ? Column(
-                          children: List.generate(_audios.length, (int index) {
-                          final audio = _audios[index];
-                          return AudioPlayerWidget(
-                              path: audio['url']!, title: audio['title']!);
-                        }))
-                      : Center(
-                          child: Text(
-                              " لا يوجد تسجيلات ، تاكد من الاتصال بالانترنت",
-                              style: AppTextStyles.font16Weight400Red)),
+                  Column(
+                      children: List.generate(_audios.length, (int index) {
+                    final audio = _audios[index];
+                    return AudioPlayerWidget(
+                        path: audio['url']!, title: audio['title']!);
+                  }))
                 ]))),
           ),
         ),
