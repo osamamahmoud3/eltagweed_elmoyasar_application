@@ -10,10 +10,14 @@ class DrawerItem extends StatelessWidget {
     required this.title,
     required this.onTap,
     this.imageWidth = 24,
+    this.imageColor = Colors.white,
+    this.isCustomImage = false,
   });
   final String image, title;
   final VoidCallback onTap;
   final double imageWidth;
+  final Color imageColor;
+  final bool isCustomImage;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,7 +25,8 @@ class DrawerItem extends StatelessWidget {
         Row(children: [
           SvgPicture.asset(
             image,
-            width: imageWidth,
+            width:isCustomImage? imageWidth:null,
+            color: isCustomImage?imageColor:null,
           ),
           TextButton(
             onPressed: onTap,

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:eltagweed_elmoyasar/core/methods/launch_links_method.dart';
+import 'package:eltagweed_elmoyasar/core/styles/app_colors.dart';
 import 'package:eltagweed_elmoyasar/core/styles/app_text_styles.dart';
 import 'package:eltagweed_elmoyasar/core/widgets/drawer_divider.dart';
 import 'package:flutter/material.dart';
@@ -50,14 +51,26 @@ class CustomDrawer extends StatelessWidget {
                   image: 'assets/svg/share.svg',
                   onTap: () => shareAppLink,
                   title: 'شارك التطبيق',
+                  isCustomImage: true,
+                  imageWidth: 20.w,
+                  imageColor: AppColors.secondaryColor,
                 ),
                 DrawerItem(
                   image: 'assets/svg/privacy-policy2.svg',
+                  isCustomImage: true,
+                  imageColor: AppColors.secondaryColor,
                   imageWidth: 30.w,
                   onTap: () => launchLinks(
                       'https://sites.google.com/view/tayseer-privacy-policy/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9',
                       context),
                   title: 'سياسة الخصوصية',
+                ),
+                DrawerItem(
+                  image: 'assets/svg/buy-book3.svg',
+                  isCustomImage: true,
+                  imageColor: AppColors.secondaryColor,
+                  onTap: () => {},
+                  title: 'اطلب الكتاب',
                 ),
               ],
             ),
