@@ -1,8 +1,7 @@
+import 'package:eltagweed_elmoyasar/core/styles/app_text_styles.dart';
+import 'package:eltagweed_elmoyasar/core/widgets/drawer_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../../../core/styles/app_colors.dart';
-import '../../../../core/styles/app_text_styles.dart';
 
 class DrawerItem extends StatelessWidget {
   const DrawerItem({
@@ -10,15 +9,20 @@ class DrawerItem extends StatelessWidget {
     required this.image,
     required this.title,
     required this.onTap,
+    this.imageWidth = 24,
   });
   final String image, title;
   final VoidCallback onTap;
-  @override 
+  final double imageWidth;
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Row(children: [
-          SvgPicture.asset(image),
+          SvgPicture.asset(
+            image,
+            width: imageWidth,
+          ),
           TextButton(
             onPressed: onTap,
             child: Text(
@@ -28,11 +32,7 @@ class DrawerItem extends StatelessWidget {
             ),
           ),
         ]),
-        const Divider(
-          thickness: 0.15,
-          height: 10,
-          color: AppColors.secondaryColor,
-        ),
+        const DrawerDivider(),
       ],
     );
   }

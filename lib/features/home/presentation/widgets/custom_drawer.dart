@@ -1,13 +1,12 @@
 import 'dart:ui';
 
+import 'package:eltagweed_elmoyasar/core/methods/launch_links_method.dart';
+import 'package:eltagweed_elmoyasar/core/styles/app_text_styles.dart';
+import 'package:eltagweed_elmoyasar/core/widgets/drawer_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../core/methods/launch_links_method.dart';
-import '../../../../core/styles/app_colors.dart';
-import '../../../../core/styles/app_text_styles.dart';
 import 'drawer_item.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -40,11 +39,7 @@ class CustomDrawer extends StatelessWidget {
                 SizedBox(
                   height: 16.h,
                 ),
-                const Divider(
-                  thickness: 0.15,
-                  height: 20,
-                  color: AppColors.secondaryColor,
-                ),
+                const DrawerDivider(),
                 DrawerItem(
                   image: 'assets/svg/Frame 21.svg',
                   onTap: () => launchLinks(
@@ -55,6 +50,14 @@ class CustomDrawer extends StatelessWidget {
                   image: 'assets/svg/share.svg',
                   onTap: () => shareAppLink,
                   title: 'شارك التطبيق',
+                ),
+                DrawerItem(
+                  image: 'assets/svg/privacy-policy2.svg',
+                  imageWidth: 30.w,
+                  onTap: () => launchLinks(
+                      'https://sites.google.com/view/tayseer-privacy-policy/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9',
+                      context),
+                  title: 'سياسة الخصوصية',
                 ),
               ],
             ),
