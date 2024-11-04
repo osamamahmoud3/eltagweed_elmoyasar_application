@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:eltagweed_elmoyasar/core/helpers/constants.dart';
 import 'package:eltagweed_elmoyasar/core/methods/launch_links_method.dart';
+import 'package:eltagweed_elmoyasar/core/methods/share_app_link.dart';
 import 'package:eltagweed_elmoyasar/core/styles/app_colors.dart';
 import 'package:eltagweed_elmoyasar/core/styles/app_text_styles.dart';
 import 'package:eltagweed_elmoyasar/core/widgets/drawer_divider.dart';
@@ -43,8 +45,7 @@ class CustomDrawer extends StatelessWidget {
                 const DrawerDivider(),
                 DrawerItem(
                   image: 'assets/svg/Frame 21.svg',
-                  onTap: () => launchLinks(
-                      'https://wa.me/201150721902?text=السلام عليكم', context),
+                  onTap: () => launchLinks(contactUsLink, context),
                   title: 'تواصل معنا',
                 ),
                 DrawerItem(
@@ -60,17 +61,26 @@ class CustomDrawer extends StatelessWidget {
                   isCustomImage: true,
                   imageColor: AppColors.secondaryColor,
                   imageWidth: 30.w,
-                  onTap: () => launchLinks(
-                      'https://sites.google.com/view/tayseer-privacy-policy/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9-%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D9%8A%D8%A9',
-                      context),
+                  onTap: () => launchLinks(privacyPolicyLink, context),
                   title: 'سياسة الخصوصية',
                 ),
-                DrawerItem(
-                  image: 'assets/svg/buy-book3.svg',
-                  isCustomImage: true,
-                  imageColor: AppColors.secondaryColor,
-                  onTap: () => {},
-                  title: 'اطلب الكتاب',
+                Banner(
+                  message: "%خصم 50 ",
+                  location: BannerLocation.topEnd,
+                  color: Colors.grey.withOpacity(0),
+                  textStyle: AppTextStyles.font16Weight400White.copyWith(
+                    color: AppColors.secondaryColor,
+                    fontSize: 17.sp,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  child: DrawerItem(
+                    image: 'assets/svg/buy-book3.svg',
+                    isCustomImage: true,
+                    imageColor: AppColors.secondaryColor,
+                    onTap: () => launchLinks(buyTheBookLink, context),
+                    title: 'اطلب الكتاب',
+                  ),
                 ),
               ],
             ),
@@ -79,11 +89,4 @@ class CustomDrawer extends StatelessWidget {
       ),
     );
   }
-}
-
-void shareAppLink() {
-  const String appLink =
-      "https://play.google.com/store/apps/details?id=com.eltagweed_elmoyasar&pcampaignid=web_share";
-  const String message = "حمل الان تطبيق التجويد الميسر: $appLink";
-  Share.share(message);
 }

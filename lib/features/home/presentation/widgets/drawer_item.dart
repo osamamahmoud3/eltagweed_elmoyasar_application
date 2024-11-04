@@ -22,21 +22,23 @@ class DrawerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(children: [
-          SvgPicture.asset(
-            image,
-            width:isCustomImage? imageWidth:null,
-            color: isCustomImage?imageColor:null,
-          ),
-          TextButton(
-            onPressed: onTap,
-            child: Text(
-              title,
-              style: AppTextStyles.font15Weight400Grey
-                  .copyWith(color: Colors.white),
+        Row(
+          children: [
+            SvgPicture.asset(
+              image,
+              width: isCustomImage ? imageWidth : null,
+              color: isCustomImage ? imageColor : null,
             ),
-          ),
-        ]),
+            TextButton(
+              onPressed: onTap,
+              child: Text(
+                title,
+                style: AppTextStyles.font15Weight400Grey
+                    .copyWith(color: Colors.white),
+              ),
+            ),
+          ],
+        ),
         const DrawerDivider(),
       ],
     );
