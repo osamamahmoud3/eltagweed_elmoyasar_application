@@ -25,7 +25,7 @@ class BooksScreen extends StatelessWidget {
         ),
         body: SafeArea(
           child: SfPdfViewer.asset(
-            'assets/pdf/التجويد الميسر.pdf',
+            'assets/pdf/التجويد الميسر2.pdf',
           ),
         ));
   }
