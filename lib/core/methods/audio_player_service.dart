@@ -2,17 +2,17 @@ import 'package:just_audio/just_audio.dart';
 
 class AudioPlayerController {
   final AudioPlayer _audioPlayer = AudioPlayer();
+  LockCachingAudioSource? _audioSource;
 
   Stream<int> get progressStream => _audioPlayer.positionStream.map((progress) {
         final currentProgress = progress.inMilliseconds;
         if (currentProgress == durationInMill) {
-          
           _audioPlayer.pause();
           _audioPlayer.seek(Duration.zero);
         }
-
         return currentProgress;
       });
+
   Future<void> setSpeed(double speed) async {
     if (speed <= 0.0) {
       throw ArgumentError.value(speed, 'speed', 'Must be greater than 0.0.');
@@ -23,24 +23,29 @@ class AudioPlayerController {
   int get durationInMill => _audioPlayer.duration?.inMilliseconds ?? 0;
   Stream<bool> get playStatusStream => _audioPlayer.playingStream;
 
-  Future<void> loadAudio(String filePath) async {
-    if (filePath.isEmpty) {
-      throw ArgumentError.value(filePath, 'filePath', 'Must not be empty.');
+  Future<void> loadAudio(String url) async {
+    if (url.isEmpty) {
+      throw ArgumentError.value(url, 'url', 'Must not be empty.');
     }
-    await _audioPlayer.setUrl(filePath);
+    _audioSource = LockCachingAudioSource(Uri.parse(url));
+    await _audioPlayer.setAudioSource(_audioSource!);
     await _audioPlayer.load();
     _audioPlayer.play();
   }
 
-  void play() async {
+  Future<void> clearCache() async {
+    await _audioSource?.clearCache();
+  }
+
+  void play() {
     _audioPlayer.play();
   }
 
-  void pause() async {
+  void pause() {
     _audioPlayer.pause();
   }
 
-  void stop() async {
+  void stop() {
     _audioPlayer.stop();
   }
 
@@ -50,6 +55,6 @@ class AudioPlayerController {
 
   void dispose() async {
     await _audioPlayer.stop();
-    _audioPlayer.dispose();
+    await _audioPlayer.dispose();
   }
 }

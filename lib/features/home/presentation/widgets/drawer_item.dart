@@ -1,8 +1,7 @@
+import 'package:eltagweed_elmoyasar/core/styles/app_text_styles.dart';
+import 'package:eltagweed_elmoyasar/core/widgets/drawer_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../../../core/styles/app_colors.dart';
-import '../../../../core/styles/app_text_styles.dart';
 
 class DrawerItem extends StatelessWidget {
   const DrawerItem({
@@ -10,29 +9,37 @@ class DrawerItem extends StatelessWidget {
     required this.image,
     required this.title,
     required this.onTap,
+    this.imageWidth = 24,
+    this.imageColor = Colors.white,
+    this.isCustomImage = false,
   });
   final String image, title;
   final VoidCallback onTap;
-  @override 
+  final double imageWidth;
+  final Color imageColor;
+  final bool isCustomImage;
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(children: [
-          SvgPicture.asset(image),
-          TextButton(
-            onPressed: onTap,
-            child: Text(
-              title,
-              style: AppTextStyles.font15Weight400Grey
-                  .copyWith(color: Colors.white),
+        Row(
+          children: [
+            SvgPicture.asset(
+              image,
+              width: isCustomImage ? imageWidth : null,
+              color: isCustomImage ? imageColor : null,
             ),
-          ),
-        ]),
-        const Divider(
-          thickness: 0.15,
-          height: 10,
-          color: AppColors.secondaryColor,
+            TextButton(
+              onPressed: onTap,
+              child: Text(
+                title,
+                style: AppTextStyles.font15Weight400Grey
+                    .copyWith(color: Colors.white),
+              ),
+            ),
+          ],
         ),
+        const DrawerDivider(),
       ],
     );
   }

@@ -1,10 +1,9 @@
+import 'package:eltagweed_elmoyasar/core/methods/audio_player_service.dart';
+import 'package:eltagweed_elmoyasar/core/styles/app_colors.dart';
+import 'package:eltagweed_elmoyasar/core/styles/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-import '../../../../core/methods/audio_player_service.dart';
-import '../../../../core/styles/app_colors.dart';
-import '../../../../core/styles/app_text_styles.dart';
 import 'play_pause_button.dart';
 
 class AudioPlayerView extends StatefulWidget {
@@ -52,7 +51,8 @@ class _AudioPlayerViewState extends State<AudioPlayerView> {
         }
 
         if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}'));
+          return const Center(
+              child: Text('خطأ في تشغيل التسجيل تحقق من اتصالك بالانترنت'));
         }
 
         final audioDuration = audioPlayerController.durationInMill.toDouble();
